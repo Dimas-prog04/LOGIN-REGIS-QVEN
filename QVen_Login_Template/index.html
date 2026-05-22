@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - QVen</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome untuk icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="login-card">
+            <div class="card-content">
+                <div class="logo-section">
+                    <!-- Tempat untuk logo, ganti isi div ini dengan tag img asetmu -->
+                    <img src="Logo-mono.png" alt="Logo QVen" class="logo-qven">
+                </div>
+                
+                <div class="form-section">
+                    <h2>Selamat Datang</h2>
+                    <p class="subtitle">Masuk ke Akun untuk melanjutkan</p>
+
+                    <form id="loginForm">
+                        <div class="input-group">
+                            <label for="username">USERNAME</label>
+                            <div class="input-wrapper">
+                                <i class="fa-regular fa-user"></i>
+                                <input type="text" id="username" placeholder="Masukkan Username Anda" required>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="password">PASSWORD</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-lock"></i>
+                                <input type="password" id="password" placeholder="Masukkan Sandi Anda" required>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="login-btn">Masuk &rarr;</button>
+                    </form>
+
+                    <p class="register-link">Belum punya Akun ? <a href="#">Daftar</a></p>
+                </div>
+            </div>
+            
+            <div class="card-footer">
+                <p>Quality Vendor and Nutrition Makan Bergizi Gratis</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

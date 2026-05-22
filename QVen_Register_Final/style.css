@@ -1,0 +1,63 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+body { background-color: #eaf2fd; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px 0; }
+.container { width: 100%; display: flex; justify-content: center; padding: 20px; }
+.register-card { background: #ffffff; width: 100%; max-width: 800px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); overflow: hidden; display: flex; flex-direction: column; }
+.card-content { display: flex; padding: 30px; align-items: center; }
+.logo-section { flex: 1; display: flex; justify-content: center; align-items: center; padding: 20px; }
+.logo-qven { width: 100%; max-width: 240px; height: auto; object-fit: contain; }
+.form-section { flex: 1.2; padding: 0 20px; }
+.form-section h2 { font-size: 20px; color: #0f172a; font-weight: 700; margin-bottom: 2px; }
+.subtitle { font-size: 11px; color: #64748b; margin-bottom: 15px; }
+
+.input-group { margin-bottom: 10px; }
+.input-group label { display: block; font-size: 9px; font-weight: 700; color: #1d4ed8; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+.input-wrapper { position: relative; display: flex; align-items: center; }
+.input-wrapper i { position: absolute; left: 12px; color: #94a3b8; font-size: 12px; }
+.input-wrapper .right-icon { left: auto; right: 12px; cursor: pointer; color: #1d4ed8; }
+.input-wrapper input, .input-wrapper select { width: 100%; padding: 8px 12px 8px 32px; border: 1px solid transparent; background-color: #f1f5f9; border-radius: 6px; font-size: 11px; color: #334155; outline: none; transition: all 0.3s ease; appearance: none; }
+.input-wrapper select { cursor: pointer; background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2394a3b8%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"); background-repeat: no-repeat; background-position: right 10px top 50%; background-size: 8px auto; padding-right: 25px; }
+.input-wrapper input:focus, .input-wrapper select:focus { background-color: #fff; border-color: #bfdbfe; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
+.input-wrapper.clickable { cursor: pointer; }
+.input-wrapper.clickable input { cursor: pointer; }
+
+.btn-instansi { width: 100%; padding: 8px; background: #2563eb; border: none; border-radius: 6px; color: white; font-size: 11px; font-weight: 600; cursor: pointer; text-align: center; transition: background 0.3s; }
+.btn-instansi:hover { opacity: 0.9; }
+
+.register-btn { width: 100%; padding: 10px; background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 100%); border: none; border-radius: 6px; color: white; font-size: 12px; font-weight: 600; cursor: pointer; margin-top: 5px; transition: opacity 0.3s; }
+.register-btn:hover { opacity: 0.9; }
+.login-link { text-align: center; font-size: 10px; color: #64748b; margin-top: 10px; }
+.login-link a { color: #1d4ed8; font-weight: 700; text-decoration: none; }
+.card-footer { background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 100%); padding: 10px; text-align: center; }
+.card-footer p { color: white; font-size: 10px; font-weight: 500; letter-spacing: 0.3px; }
+
+/* MODALS GENERAL */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: center; z-index: 1000; }
+.modal-overlay.active { display: flex; }
+.modal-card { background: white; border-radius: 12px; overflow: hidden; width: 90%; }
+.modal-header { padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; }
+.header-title { display: flex; align-items: center; gap: 10px; }
+.header-title .dot { width: 10px; height: 10px; background: #1d4ed8; border-radius: 50%; }
+.header-title h3 { font-size: 16px; color: #333; }
+.close-modal { background: none; border: none; font-size: 24px; cursor: pointer; color: #666; }
+
+/* MAP MODAL SPECIFIC */
+.map-modal-size { max-width: 600px; }
+#map { width: 100%; height: 350px; border-radius: 8px; }
+.map-footer { padding: 15px 20px; display: flex; gap: 10px; }
+.btn-save-map { padding: 8px 16px; background: #2563eb; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 12px;}
+.btn-cancel-map { padding: 8px 16px; background: #ff4d4d; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 12px;}
+
+/* INSTANSI MODAL SPECIFIC */
+.mini-modal { max-width: 400px; padding-bottom: 20px; }
+.text-center { text-align: center; }
+.icon-warning-container { display: flex; justify-content: center; margin: 20px 0; }
+.circle-icon.green { width: 80px; height: 80px; background-color: #44ce42; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-size: 50px; font-weight: bold; }
+.question-text { font-size: 16px; color: #333; margin-bottom: 25px; font-weight: 600; }
+.button-row { display: flex; justify-content: center; gap: 15px; padding: 0 40px; }
+.btn-yes { flex: 1; padding: 10px; background: #2563eb; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
+.btn-no { flex: 1; padding: 10px; background: #ff0000; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
+
+@media (max-width: 768px) {
+    .card-content { flex-direction: column; padding: 20px; }
+    .form-section { padding: 0; width: 100%; margin-top: 15px; }
+}
