@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Q.ven - Sistem Pengawasan Makanan Bergizi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">
+    <img src="logo-qven.png" alt="Q.ven">
+  </div>
+  <ul class="nav-links">
+    <li><a href="#hero">Dashboard</a></li>
+    <li><a href="#fitur">Fitur</a></li>
+    <li><a href="#cara-kerja">Cara Kerja</a></li>
+    <li><a href="#teknologi">Teknologi</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="QVen_Login_Template/index.html">Log In</a>
+    
+    <button class="btn-signup" onclick="window.location.href='QVen_Register_Final/index.html'">Sign Up</button>
+  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#hero" onclick="closeMenu()">Dashboard</a>
+  <a href="#fitur" onclick="closeMenu()">Fitur</a>
+  <a href="#cara-kerja" onclick="closeMenu()">Cara Kerja</a>
+  <a href="#teknologi" onclick="closeMenu()">Teknologi</a>
+  <div class="mobile-actions">
+    <a href="QVen_Login_Template/index.html" class="btn-login">Log In</a>
+    
+    <a href="QVen_Register_Final/index.html" class="btn-signup-mobile">Sign Up</a>
+  </div>
+</div>
+
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <h1>Memastikan <strong>kualitas gizinya</strong> serta <strong>Kelayakan Vendor</strong> dengan <strong>Machine Learning</strong> dan Transparansi <strong>Blockchain</strong></h1>
+      <p>Quality Vendor and Nutrition<br>Makan Bergizi Gratis</p>
+      <div class="hero-buttons">
+        <button class="btn-primary">Coba Sekarang</button>
+        <button class="btn-secondary">Sign Up</button>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="food-tray.png" alt="Nampan Makanan Bergizi">
+    </div>
+  </div>
+  <button class="hero-chevron" onclick="document.getElementById('fitur').scrollIntoView({behavior:'smooth'})">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </button>
+  <div class="hero-border"></div>
+</section>
+
+<section class="fitur-section" id="fitur">
+  <div class="fitur-header">
+    <p>FITUR UNGGULAN</p>
+    <h2>Fitur Unggulan <span>Q.ven</span></h2>
+  </div>
+  <div class="marquee-container">
+    <div class="marquee-track-wrapper">
+    </div>
+  </div>
+</section>
+
+<section class="ck-overview" id="cara-kerja">
+  <div class="ck-blur-bg">
+    <div class="blob" style="width:500px;height:500px;top:-10%;left:-10%;background:radial-gradient(circle,rgba(59,130,246,0.12) 0%,transparent 70%);"></div>
+    <div class="blob" style="width:400px;height:400px;top:40%;right:-8%;background:radial-gradient(circle,rgba(37,99,235,0.10) 0%,transparent 70%);"></div>
+    <div class="blob" style="width:350px;height:350px;bottom:-5%;left:30%;background:radial-gradient(circle,rgba(96,165,250,0.10) 0%,transparent 70%);"></div>
+    <div class="blob" style="width:300px;height:300px;top:20%;left:50%;background:radial-gradient(circle,rgba(29,78,216,0.08) 0%,transparent 70%);"></div>
+    <div class="blob" style="width:450px;height:450px;bottom:10%;right:20%;background:radial-gradient(circle,rgba(59,130,246,0.07) 0%,transparent 70%);"></div>
+  </div>
+
+  <div class="ck-overview-inner">
+    <div class="ck-header">
+      <p>CARA KERJA</p>
+      <h2>Cara Kerja <span>Q.ven</span></h2>
+    </div>
+
+    <div class="ck-grid">
+      <div class="orbit-wrap">
+        <div class="orbit-container" id="orbitContainer">
+          <div class="orbit-ring-outer"></div>
+          <div class="orbit-ring-inner"></div>
+          <div class="orbit-center" id="orbitCenter">
+            <svg width="56" height="56" viewBox="0 0 64 64" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="16" y1="4" x2="16" y2="20"/>
+              <line x1="24" y1="4" x2="24" y2="20"/>
+              <line x1="32" y1="4" x2="32" y2="20"/>
+              <path d="M12 20 Q24 26 36 20" fill="none"/>
+              <line x1="24" y1="24" x2="24" y2="56" stroke-width="3.5"/>
+              <path d="M20 56 Q24 60 28 56" fill="none"/>
+              <ellipse cx="50" cy="18" rx="7" ry="10"/>
+              <line x1="50" y1="28" x2="50" y2="52" stroke-width="3.5"/>
+              <path d="M46 52 Q50 57 54 52" fill="none"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="steps-wrap">
+        <div class="steps-grid">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <span class="step-text">Akses Sistem</span>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <span class="step-text">Registrasi dan Login</span>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <span class="step-text">Identifikasi Role Pengguna</span>
+          </div>
+          <div class="step-item">
+            <div class="step-num">4</div>
+            <span class="step-text">Pengelolaan Vendor</span>
+          </div>
+          <div class="step-item">
+            <div class="step-num">5</div>
+            <span class="step-text">Pengelolaan Data oleh Admin Vendor</span>
+          </div>
+          <div class="step-item">
+            <div class="step-num">6</div>
+            <span class="step-text">Analisis dan Penyimpanan Data</span>
+          </div>
+          <div class="step-item">
+            <div class="step-num">7</div>
+            <span class="step-text">Penerimaan dan Feedback</span>
+          </div>
+          <button class="btn-peta" id="btnPeta" onclick="togglePeta()">
+            <div class="btn-peta-icon" id="btnPetaIcon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <span id="btnPetaText">Lihat Peta</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ck-peta" id="cara-kerja-peta">
+  <div class="ck-peta-waves">
+    <svg style="top:10%;height:200px;animation:waveMove1 20s linear infinite" viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path fill="rgba(255,255,255,0.3)" d="M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60 L1440,120 L0,120 Z"/>
+    </svg>
+    <svg style="top:30%;height:180px;animation:waveMove2 15s linear infinite" viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path fill="rgba(255,255,255,0.25)" d="M0,40 C360,100 720,20 1080,80 C1260,100 1380,60 1440,50 L1440,120 L0,120 Z"/>
+    </svg>
+    <svg style="bottom:5%;height:220px;animation:waveMove3 18s linear infinite" viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path fill="rgba(255,255,255,0.2)" d="M0,80 C240,20 480,100 720,60 C960,20 1200,100 1440,60 L1440,120 L0,120 Z"/>
+    </svg>
+  </div>
+  <div class="ck-peta-glow1"></div>
+  <div class="ck-peta-glow2"></div>
+
+  <div class="ck-peta-inner">
+    <div class="ck-peta-header">
+      <p>Alur Sistem</p>
+      <h2>Cara Kerja <span>Q.ven</span></h2>
+      <p class="sub">Hover atau tap pada setiap node untuk melihat detail proses</p>
+    </div>
+
+    <div class="flowchart" id="flowchart">
+      <svg class="lines" viewBox="0 0 100 100" preserveAspectRatio="none" id="flowLines"></svg>
+      <div id="flowNodes"></div>
+    </div>
+  </div>
+</section>
+
+<section class="tech-section" id="teknologi">
+  <div class="tech-header">
+    <p>Stack</p>
+    <h2>Teknologi Yang Digunakan <span>Q.ven</span></h2>
+  </div>
+  <div class="tech-marquee-container">
+    <div class="tech-marquee-wrapper">
+      <div class="tech-marquee-track tech-track-a" id="techTrackA"></div>
+      <div class="tech-marquee-track tech-track-b" id="techTrackB"></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>&copy; 2026 <strong>Q.ven</strong> — Sistem Pengawasan Makanan Bergizi Gratis. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

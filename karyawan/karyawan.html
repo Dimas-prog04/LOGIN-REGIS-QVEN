@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karyawan Dashboard</title>
+    <link rel="stylesheet" href="stylekaryawan.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<base target="_blank">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="../assets/Logo-mono.png" alt="Logo" style="max-width: 180px; height: auto; display: block;">
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" data-page="dashboard">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item" data-page="kotak-mbg">
+                    <i class="fas fa-box"></i>
+                    <span>Kotak MBG</span>
+                </a>
+                <a href="#" class="nav-item" data-page="profil">
+                    <i class="fas fa-user"></i>
+                    <span>Profil</span>
+                </a>
+                <a href="../HalamanUtama.html" class="nav-item" onclick="event.preventDefault(); window.location.href='../HalamanUtama.html'">
+                    <i class="fas fa-globe"></i>
+                    <span>Landing Page</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Cari data Kotak MBG">
+                </div>
+            </header>
+
+            <!-- Dashboard Page -->
+            <div class="page active" id="dashboard-page">
+                <h1 class="page-title">Dashboard</h1>
+                
+                <div class="stats-card">
+                    <div class="stats-header">
+                        <span class="dot blue"></span>
+                        <span class="stats-label">Total Kotak MBG</span>
+                    </div>
+                    <div class="stats-value">
+                        <i class="fas fa-box"></i>
+                        <span>2.000</span>
+                    </div>
+                </div>
+
+                <div class="activity-section">
+                    <div class="activity-header">
+                        <span class="dot blue"></span>
+                        <span class="activity-title">Aktivitas Kotak MBG</span>
+                    </div>
+                    <div class="activity-list">
+                        <div class="activity-item success">
+                            <span>Ayam Rendang Rusdi</span>
+                            <span class="time">14.33 AM</span>
+                        </div>
+                        <div class="activity-item">
+                            <span>Ayam Rendang Rusdi</span>
+                            <span class="time">14.33 AM</span>
+                        </div>
+                        <div class="activity-item danger">
+                            <span>Ayam Rendang Rusdi</span>
+                            <span class="time">14.33 AM</span>
+                        </div>
+                        <div class="activity-item">
+                            <span>Ayam Rendang Rusdi</span>
+                            <span class="time">14.33 AM</span>
+                        </div>
+                        <div class="activity-item success">
+                            <span>Ayam Rendang Rusdi</span>
+                            <span class="time">14.33 AM</span>
+                        </div>
+                        <div class="activity-item">
+                            <span>Ayam Rendang Rusdi</span>
+                            <span class="time">14.33 AM</span>
+                        </div>
+                        <div class="activity-item danger">
+                            <span>Ayam Rendang Rusdi</span>
+                            <span class="time">14.33 AM</span>
+                        </div>
+                        <div class="activity-item success">
+                            <span>Ayam Rendang Rusdi</span>
+                            <span class="time">14.33 AM</span>
+                        </div>
+                        <div class="activity-item success">
+                            <span>Ayam Rendang Rusdi</span>
+                            <span class="time">14.33 AM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kotak MBG Page -->
+            <div class="page" id="kotak-mbg-page">
+                <div class="page-header">
+                    <h1 class="page-title">Kotak MBG</h1>
+                    <button class="btn-add" onclick="openUploadModal()">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Menu</th>
+                                <th>Code</th>
+                                <th>BlockchainHash</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>01</td>
+                                <td>Ayam Rendang</td>
+                                <td>69696996</td>
+                                <td>67g2eg87f32fbewbwos</td>
+                                <td class="actions">
+                                    <button class="btn-view" onclick="openViewKotakModal()">View</button>
+                                    <button class="btn-delete" onclick="openDeleteModal()">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>01</td>
+                                <td>Ayam Rendang</td>
+                                <td>69696996</td>
+                                <td>67g2eg87f32fbewbwos</td>
+                                <td class="actions">
+                                    <button class="btn-view" onclick="openViewKotakModal()">View</button>
+                                    <button class="btn-delete" onclick="openDeleteModal()">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>01</td>
+                                <td>Ayam Rendang</td>
+                                <td>69696996</td>
+                                <td>67g2eg87f32fbewbwos</td>
+                                <td class="actions">
+                                    <button class="btn-view" onclick="openViewKotakModal()">View</button>
+                                    <button class="btn-delete" onclick="openDeleteModal()">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>01</td>
+                                <td>Ayam Rendang</td>
+                                <td>69696996</td>
+                                <td>67g2eg87f32fbewbwos</td>
+                                <td class="actions">
+                                    <button class="btn-view" onclick="openViewKotakModal()">View</button>
+                                    <button class="btn-delete" onclick="openDeleteModal()">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>01</td>
+                                <td>Ayam Rendang</td>
+                                <td>69696996</td>
+                                <td>67g2eg87f32fbewbwos</td>
+                                <td class="actions">
+                                    <button class="btn-view" onclick="openViewKotakModal()">View</button>
+                                    <button class="btn-delete" onclick="openDeleteModal()">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <h2 class="section-title">Bukti Kotak Diterima</h2>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Penerima</th>
+                                <th>Code</th>
+                                <th>BlockchainHash</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>01</td>
+                                <td>Renal Kusnadi</td>
+                                <td>69696996</td>
+                                <td>67g2eg87f32fbewbwos</td>
+                                <td class="actions">
+                                    <button class="btn-view" onclick="openViewBuktiModal()">View</button>
+                                    <button class="btn-delete" onclick="openDeleteModal()">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>01</td>
+                                <td>Renal Kusnadi</td>
+                                <td>69696996</td>
+                                <td>67g2eg87f32fbewbwos</td>
+                                <td class="actions">
+                                    <button class="btn-view" onclick="openViewBuktiModal()">View</button>
+                                    <button class="btn-delete" onclick="openDeleteModal()">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>01</td>
+                                <td>Renal Kusnadi</td>
+                                <td>69696996</td>
+                                <td>67g2eg87f32fbewbwos</td>
+                                <td class="actions">
+                                    <button class="btn-view" onclick="openViewBuktiModal()">View</button>
+                                    <button class="btn-delete" onclick="openDeleteModal()">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>01</td>
+                                <td>Renal Kusnadi</td>
+                                <td>69696996</td>
+                                <td>67g2eg87f32fbewbwos</td>
+                                <td class="actions">
+                                    <button class="btn-view" onclick="openViewBuktiModal()">View</button>
+                                    <button class="btn-delete" onclick="openDeleteModal()">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>01</td>
+                                <td>Renal Kusnadi</td>
+                                <td>69696996</td>
+                                <td>67g2eg87f32fbewbwos</td>
+                                <td class="actions">
+                                    <button class="btn-view" onclick="openViewBuktiModal()">View</button>
+                                    <button class="btn-delete" onclick="openDeleteModal()">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profil Page -->
+            <div class="page" id="profil-page">
+                <div class="page-header">
+                    <h1 class="page-title">Profil</h1>
+                    <button class="btn-edit" onclick="toggleEditMode()">
+                        <i class="fas fa-pen"></i>
+                    </button>
+                </div>
+
+                <div class="profile-container">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+
+                    <div class="profile-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label><span class="dot blue"></span> Nama</label>
+                                <input type="text" value="Muhammad Iqbal" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label><span class="dot blue"></span> Email</label>
+                                <input type="email" value="iqbal@gmail.com" readonly>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label><span class="dot blue"></span> NIK</label>
+                                <input type="text" value="0099826628" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label><span class="dot blue"></span> Password Baru</label>
+                                <div class="password-field">
+                                    <input type="password" value="************" readonly>
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label><span class="dot blue"></span> Alamat</label>
+                                <input type="text" value="Jalan bla bla bla" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn-save" onclick="saveProfile()">
+                        <span>Simpan</span>
+                        <i class="fas fa-save"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Landing Page -->
+            <div class="page" id="landing-page">
+                <div class="landing-content">
+                    <h1>Selamat Datang di <img src="../assets/Logo-mono.png" alt="Logo" style="max-height: 2rem; vertical-align: middle;"></h1>
+                    <p>Sistem Manajemen Makanan Bergizi Gratis</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Upload & Analysis Modal -->
+    <div class="modal-overlay" id="uploadAnalysisModal">
+        <div class="modal modal-upload">
+            <!-- Step 1: Upload Form -->
+            <div class="upload-step" id="uploadStep">
+                <div class="upload-icons-header">
+                    <div class="icon-box">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fas fa-images"></i>
+                    </div>
+                </div>
+                <h2 class="upload-modal-title">
+                    Masukkan Gambar <span class="highlight">Kotak MBG Berisi Makanan</span> Yang Ingin Di <span class="highlight">Analisis</span>
+                </h2>
+                <p class="upload-modal-subtitle">Pilih Gambar Makanan Yang Jelas dan Tidak Terpotong</p>
+
+                <div class="upload-form-group">
+                    <label><span class="dot blue"></span> Nama Menu</label>
+                    <input type="text" id="menuNameInput" placeholder="Masukkan nama menu">
+                </div>
+
+                <div class="upload-area-modal" id="uploadAreaModal" onclick="document.getElementById('modalFileInput').click()">
+                    <input type="file" id="modalFileInput" accept="image/*" hidden onchange="handleModalFileSelect(event)">
+                    <button class="btn-upload-modal">
+                        <i class="fas fa-plus"></i>
+                        <span>Upload Gambar</span>
+                    </button>
+                    <p class="upload-hint-modal">Klik atau drag gambar untuk upload disini</p>
+                </div>
+
+                <button class="btn-kirim-modal" onclick="startAnalysis()">
+                    <span>Kirim</span>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+
+            <!-- Step 2: Analyzing -->
+            <div class="analyzing-step" id="analyzingStep" style="display: none;">
+                <div class="upload-icons-header">
+                    <div class="icon-box">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fas fa-images"></i>
+                    </div>
+                </div>
+                <h2 class="analyzing-title">Menganalisis Gambar ....</h2>
+                <div class="analyzing-image-container">
+                    <img id="analyzingImage" src="" alt="Analyzing">
+                </div>
+            </div>
+
+            <!-- Step 3: Nutrition Result -->
+            <div class="nutrition-result-step" id="nutritionResultStep" style="display: none;">
+                <div class="nutrition-result-header">
+                    <h2>Informasi Gizi</h2>
+                    <button class="btn-back-result" onclick="closeUploadModal()">
+                        <i class="fas fa-arrow-left"></i>
+                        Back
+                    </button>
+                </div>
+                <div class="nutrition-badge">001</div>
+                <div class="nutrition-result-content">
+                    <div class="nutrition-result-image">
+                        <img id="resultImage" src="" alt="Food Result">
+                    </div>
+                    <div class="nutrition-result-details">
+                        <h3>Detail</h3>
+                        <div class="detail-grid-result">
+                            <div class="detail-item-result">
+                                <span class="dot blue"></span>
+                                <span class="label">Nama Menu</span>
+                                <span class="value" id="resultMenuName">Ayam Rendang</span>
+                            </div>
+                            <div class="detail-item-result">
+                                <span class="dot blue"></span>
+                                <span class="label">Code</span>
+                                <span class="value">#00001</span>
+                            </div>
+                            <div class="detail-item-result">
+                                <span class="dot blue"></span>
+                                <span class="label">Kalori</span>
+                                <span class="value">500 kcal</span>
+                            </div>
+                            <div class="detail-item-result">
+                                <span class="dot blue"></span>
+                                <span class="label">Protein</span>
+                                <span class="value">50 Gram</span>
+                            </div>
+                            <div class="detail-item-result">
+                                <span class="dot blue"></span>
+                                <span class="label">Lemak</span>
+                                <span class="value">50 Gram</span>
+                            </div>
+                            <div class="detail-item-result">
+                                <span class="dot blue"></span>
+                                <span class="label">Karbohidrat</span>
+                                <span class="value">50 Gram</span>
+                            </div>
+                            <div class="detail-item-result">
+                                <span class="dot blue"></span>
+                                <span class="label">Serat</span>
+                                <span class="value">50 Gram</span>
+                            </div>
+                            <div class="detail-item-result">
+                                <span class="dot blue"></span>
+                                <span class="label">Kalsium</span>
+                                <span class="value">50 Gram</span>
+                            </div>
+                            <div class="detail-item-result">
+                                <span class="dot blue"></span>
+                                <span class="label">Zat Besi</span>
+                                <span class="value">50 Gram</span>
+                            </div>
+                            <div class="detail-item-result">
+                                <span class="dot blue"></span>
+                                <span class="label">Natrium</span>
+                                <span class="value">50 Gram</span>
+                            </div>
+                            <div class="detail-item-result">
+                                <span class="dot blue"></span>
+                                <span class="label">Kalium</span>
+                                <span class="value">50 Gram</span>
+                            </div>
+                            <div class="detail-item-result">
+                                <span class="dot blue"></span>
+                                <span class="label">Zinc</span>
+                                <span class="value">50 Gram</span>
+                            </div>
+                        </div>
+                        <div class="detail-vitamin-result">
+                            <span class="dot blue"></span>
+                            <span class="label">Detail Vitamin</span>
+                            <div class="vitamin-list-result">
+                                <p>Vitamin A : 2.00 mcg</p>
+                                <p>Vitamin B : Kompleks (B1, B2, B3, B6, B9) : 0 Gram</p>
+                                <p>Vitamin C : 0 Gram</p>
+                                <p>Vitamin D : 0 Gram</p>
+                                <p>Vitamin E : 0 Gram</p>
+                                <p>Vitamin K : 0 Gram</p>
+                            </div>
+                        </div>
+                        <div class="detail-lemak-result">
+                            <span class="dot blue"></span>
+                            <span class="label">Detail Lemak</span>
+                            <div class="lemak-list-result">
+                                <p>Lemak Jenuh : 0 Gram</p>
+                                <p>Lemak Tidak Jenuh : 0 Gram</p>
+                                <p>Lemak Trans : 0 Gram</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-simpan-info-modal" onclick="saveNutritionInfo()">
+                    <i class="fas fa-save"></i>
+                    <span>Simpan Informasi</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Modal - Bukti Kotak Diterima -->
+    <div class="modal-overlay" id="viewBuktiModal">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <span class="dot blue"></span>
+                    <span>View</span>
+                </div>
+                <button class="btn-close" onclick="closeModal('viewBuktiModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-icon">
+                    <i class="fas fa-box"></i>
+                </div>
+                <h3 class="modal-subtitle">Bukti Kotak Diterima</h3>
+                
+                <div class="modal-info-row">
+                    <div class="modal-info-item">
+                        <label><span class="dot blue"></span> Nama</label>
+                        <input type="text" value="Ayam Rendang" readonly>
+                    </div>
+                    <div class="modal-info-item">
+                        <label><span class="dot blue"></span> Code</label>
+                        <input type="text" value="#00001" readonly>
+                    </div>
+                </div>
+
+                <div class="modal-info-item full" style="margin-bottom: 15px;">
+                    <label><span class="dot blue"></span> Gambar</label>
+                    <div class="modal-image">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500" alt="Food">
+                    </div>
+                </div>
+
+                <div class="modal-info-item full" style="margin-bottom: 15px;">
+                    <label><span class="dot blue"></span> Feedback</label>
+                    <textarea readonly>Menu Makanan ini sangat bergizi dan dapat memenuhi gizi, aku nak sepuluh woi</textarea>
+                </div>
+
+                <div class="radar-gizi-container" style="margin-bottom: 20px;">
+                    <canvas id="radarGizi"></canvas>
+                </div>
+
+                <div class="modal-info-item full">
+                    <label><span class="dot blue"></span> Detail Kotak MBG</label>
+                    <div class="detail-dropdown" onclick="toggleDropdown('dropBuktiKaryawan', 'arrowKaryawan')" style="transition: 0.3s; user-select: none;">
+                        <span>Klik untuk Detail</span>
+                        <i class="fas fa-chevron-down" id="arrowKaryawan" style="transition: transform 0.3s;"></i>
+                    </div>
+                    
+                    <div id="dropBuktiKaryawan" style="display: none; background: #f8f9fa; border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; margin-top: 10px;">
+                        
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 20px;">
+                            <div><label style="font-size: 11px; color: #666;"><span class="dot blue" style="width: 6px; height: 6px;"></span> No</label><div style="font-size: 13px; color: #2196F3; font-weight: 500; margin-left: 14px;">001</div></div>
+                            <div><label style="font-size: 11px; color: #666;"><span class="dot blue" style="width: 6px; height: 6px;"></span> Code</label><div style="font-size: 13px; color: #2196F3; font-weight: 500; margin-left: 14px;">0306190903</div></div>
+                            <div><label style="font-size: 11px; color: #666;"><span class="dot blue" style="width: 6px; height: 6px;"></span> Nama</label><div style="font-size: 13px; color: #2196F3; font-weight: 500; margin-left: 14px;">Ayam Rendang</div></div>
+                            <div><label style="font-size: 11px; color: #666;"><span class="dot blue" style="width: 6px; height: 6px;"></span> Status</label><div style="background: #2196F3; color: white; padding: 4px 10px; border-radius: 12px; font-size: 11px; display: inline-block; margin-left: 14px;">Diterima</div></div>
+                            
+                            <div><label style="font-size: 11px; color: #666;"><span class="dot blue" style="width: 6px; height: 6px;"></span> Kalori</label><div style="font-size: 13px; color: #2196F3; font-weight: 500; margin-left: 14px;">500 Kcal</div></div>
+                            <div><label style="font-size: 11px; color: #666;"><span class="dot blue" style="width: 6px; height: 6px;"></span> Protein</label><div style="font-size: 13px; color: #2196F3; font-weight: 500; margin-left: 14px;">30 Gram</div></div>
+                            <div><label style="font-size: 11px; color: #666;"><span class="dot blue" style="width: 6px; height: 6px;"></span> Lemak</label><div style="font-size: 13px; color: #2196F3; font-weight: 500; margin-left: 14px;">30 Gram</div></div>
+                            <div><label style="font-size: 11px; color: #666;"><span class="dot blue" style="width: 6px; height: 6px;"></span> Karbohidrat</label><div style="font-size: 13px; color: #2196F3; font-weight: 500; margin-left: 14px;">30 Gram</div></div>
+                            <div><label style="font-size: 11px; color: #666;"><span class="dot blue" style="width: 6px; height: 6px;"></span> Serat</label><div style="font-size: 13px; color: #2196F3; font-weight: 500; margin-left: 14px;">30 Gram</div></div>
+                            <div><label style="font-size: 11px; color: #666;"><span class="dot blue" style="width: 6px; height: 6px;"></span> Kalsium</label><div style="font-size: 13px; color: #2196F3; font-weight: 500; margin-left: 14px;">30 Gram</div></div>
+                            <div><label style="font-size: 11px; color: #666;"><span class="dot blue" style="width: 6px; height: 6px;"></span> Zinc</label><div style="font-size: 13px; color: #2196F3; font-weight: 500; margin-left: 14px;">30 Gram</div></div>
+                        </div>
+
+                        <div style="background: #fff; padding: 12px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #e0e0e0;">
+                            <label style="font-size: 11px; color: #666; margin-bottom: 8px; display: block;"><span class="dot blue" style="width: 6px; height: 6px;"></span> Detail Lemak</label>
+                            <div style="font-size: 12px; color: #555; line-height: 1.6; margin-left: 14px;">Lemak Jenuh : 0 Gram<br>Lemak Baik : 11 Gram<br>Lemak Trans : 0 Gram</div>
+                        </div>
+
+                        <div style="background: #fff; padding: 12px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #e0e0e0;">
+                            <label style="font-size: 11px; color: #666; margin-bottom: 8px; display: block;"><span class="dot blue" style="width: 6px; height: 6px;"></span> Detail Vitamin</label>
+                            <div style="font-size: 12px; color: #555; line-height: 1.6; margin-left: 14px;">Vitamin C : 0 Gram<br>Vitamin B Kompleks : 0 Gram<br>Vitamin A : 11 Gram<br>Vitamin D : 11 Gram<br>Vitamin E : 11 Gram<br>Vitamin K : 11 Gram</div>
+                        </div>
+
+                        <div style="margin-bottom: 5px;">
+                            <label style="font-size: 11px; color: #666; margin-bottom: 5px; display: block;"><span class="dot blue" style="width: 6px; height: 6px;"></span> Kelayakan</label>
+                            <div style="font-size: 13px; color: #2196F3; font-weight: 500; margin-left: 14px;">Menu makanan ini sangat layak untuk dibagikan</div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- View Modal - Kotak MBG -->
+    <div class="modal-overlay" id="viewKotakModal">
+        <div class="modal modal-large">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <span class="dot blue"></span>
+                    <span>View</span>
+                </div>
+                <button class="btn-close" onclick="closeModal('viewKotakModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-icon">
+                    <i class="fas fa-box"></i>
+                </div>
+                <h3 class="modal-subtitle">Kotak MBG</h3>
+                
+                <div class="nutrition-grid">
+                    <div class="nutrition-item">
+                        <label><span class="dot blue"></span> Nama</label>
+                        <span>Ayam Renda...</span>
+                    </div>
+                    <div class="nutrition-item">
+                        <label><span class="dot blue"></span> No</label>
+                        <span>001</span>
+                    </div>
+                    <div class="nutrition-item">
+                        <label><span class="dot blue"></span> Code</label>
+                        <span>69696969</span>
+                    </div>
+                    <div class="nutrition-item">
+                        <label><span class="dot blue"></span> Kalori</label>
+                        <span>500 kcal</span>
+                    </div>
+                    <div class="nutrition-item">
+                        <label><span class="dot blue"></span> Protein</label>
+                        <span>50 Gram</span>
+                    </div>
+                    <div class="nutrition-item">
+                        <label><span class="dot blue"></span> Lemak</label>
+                        <span>50 Gram</span>
+                    </div>
+                    <div class="nutrition-item">
+                        <label><span class="dot blue"></span> Karbohidrat</label>
+                        <span>50 Gram</span>
+                    </div>
+                    <div class="nutrition-item">
+                        <label><span class="dot blue"></span> Serat</label>
+                        <span>50 Gram</span>
+                    </div>
+                    <div class="nutrition-item">
+                        <label><span class="dot blue"></span> Kalsium</label>
+                        <span>50 Gram</span>
+                    </div>
+                    <div class="nutrition-item">
+                        <label><span class="dot blue"></span> Zat Besi</label>
+                        <span>50 Gram</span>
+                    </div>
+                    <div class="nutrition-item">
+                        <label><span class="dot blue"></span> Natrium</label>
+                        <span>50 Gram</span>
+                    </div>
+                    <div class="nutrition-item">
+                        <label><span class="dot blue"></span> Kalium</label>
+                        <span>50 Gram</span>
+                    </div>
+                    <div class="nutrition-item">
+                        <label><span class="dot blue"></span> Zinc</label>
+                        <span>50 Gram</span>
+                    </div>
+                </div>
+
+                <div class="detail-sections">
+                    <div class="detail-section">
+                        <label><span class="dot blue"></span> Detail Vitamin</label>
+                        <div class="detail-content">
+                            <p>Vitamin A : 2.00 mcg</p>
+                            <p>Vitamin B : Kompleks (B1, B2, B3, B6, B9) : 0 Gram</p>
+                            <p>Vitamin C : 0 Gram</p>
+                            <p>Vitamin D : 0 Gram</p>
+                            <p>Vitamin E : 0 Gram</p>
+                            <p>Vitamin K : 0 Gram</p>
+                        </div>
+                    </div>
+                    <div class="detail-section">
+                        <label><span class="dot blue"></span> Detail Lemak</label>
+                        <div class="detail-content">
+                            <p>Lemak Jenuh : 0 Gram</p>
+                            <p>Lemak Tidak Jenuh : 0 Gram</p>
+                            <p>Lemak Trans : 0 Gram</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-image-section">
+                    <label><span class="dot blue"></span> Gambar</label>
+                    <div class="modal-image">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500" alt="Food">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal-overlay" id="deleteModal">
+        <div class="modal modal-small">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <span class="dot red"></span>
+                    <span>Delete</span>
+                </div>
+                <button class="btn-close" onclick="closeModal('deleteModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body center">
+                <div class="delete-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <p class="delete-text">Anda Yakin Ingin Hapus ?</p>
+                <div class="delete-actions">
+                    <button class="btn-tidak" onclick="closeModal('deleteModal')">Tidak</button>
+                    <button class="btn-ya" onclick="confirmDelete()">Ya</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Processing Modal -->
+    <div class="modal-overlay" id="processingModal">
+        <div class="modal modal-small">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <span class="dot red"></span>
+                    <span>Delete</span>
+                </div>
+                <button class="btn-close" onclick="closeModal('processingModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body center">
+                <div class="processing-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <p class="processing-text">Menunggu Persetujuan Super Admin...</p>
+                <button class="btn-batalkan" onclick="closeModal('processingModal')">Batalkan</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scriptkaryawan.js"></script>
+</body>
+</html>

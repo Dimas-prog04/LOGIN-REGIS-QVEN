@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styleadmin.css">
+<base target="_blank">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="logo"><img src="../assets/Logo-mono.png" alt="Logo" style="max-width: 180px; height: auto; display: block;"></div>
+        <ul class="nav-menu">
+            <li class="nav-item active" data-page="dashboard" onclick="navigateTo('dashboard')">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </li>
+            
+            <li class="nav-item has-dropdown" id="menuAkun">
+                <div class="nav-item-header" onclick="toggleSidebarDropdown('akunDropdown', 'akunArrow')">
+                    <div class="nav-item-left">
+                        <i class="fas fa-users-cog"></i>
+                        <span>Akun</span>
+                    </div>
+                    <i class="fas fa-chevron-down nav-arrow" id="akunArrow"></i>
+                </div>
+                <ul class="nav-dropdown" id="akunDropdown">
+                    <li class="nav-sub-item" data-page="karyawan" onclick="navigateTo('karyawan')">
+                        <i class="fas fa-user-tie"></i>
+                        <span>Karyawan</span>
+                    </li>
+                    <li class="nav-sub-item" data-page="calon-penerima" onclick="navigateTo('calon-penerima')">
+                        <i class="fas fa-users"></i>
+                        <span>Calon Penerima</span>
+                    </li>
+                    <li class="nav-sub-item" data-page="penerima" onclick="navigateTo('penerima')">
+                        <i class="fas fa-user-check"></i>
+                        <span>Penerima</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item" data-page="kotak-mbg" onclick="navigateTo('kotak-mbg')">
+                <i class="fas fa-box"></i>
+                <span>Kotak MBG</span>
+            </li>
+            <li class="nav-item" data-page="tempat" onclick="navigateTo('tempat')">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Tempat</span>
+            </li>
+            <li class="nav-item" data-page="aktivitas" onclick="navigateTo('aktivitas')">
+                <i class="fas fa-chart-line"></i>
+                <span>Aktivitas</span>
+            </li>
+            <li class="nav-item" data-page="profil" onclick="navigateTo('profil')">
+                <i class="fas fa-user"></i>
+                <span>Profil</span>
+            </li>
+            <li class="nav-item" onclick="window.location.href='../HalamanUtama.html'">
+                <i class="fas fa-globe"></i>
+                <span>Landing Page</span>
+            </li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        <!-- DASHBOARD SECTION -->
+        <section id="dashboard" class="page-section active">
+            <div class="header">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Cari data karyawan">
+                </div>
+            </div>
+            <h1 class="page-title">Dashboard</h1>
+            
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon blue"><i class="fas fa-user"></i></div>
+                    <div class="stat-info">
+                        <h3>Total Karyawan</h3>
+                        <p class="blue-text">19</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon blue"><i class="fas fa-box"></i></div>
+                    <div class="stat-info">
+                        <h3>Total Kotak MBG</h3>
+                        <p class="blue-text">2.000</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity-card full-width">
+                <div class="activity-header">
+                    <div class="activity-dot blue"></div>
+                    <span>Aktivitas Kotak MBG</span>
+                </div>
+                <div class="activity-list">
+                    <div class="activity-item success">
+                        <span class="activity-text">Ayam Rendang Rusdi</span>
+                        <span class="activity-time">14.33 AM</span>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-text">Ayam Rendang Rusdi</span>
+                        <span class="activity-time">14.33 AM</span>
+                    </div>
+                    <div class="activity-item danger">
+                        <span class="activity-text">Ayam Rendang Rusdi</span>
+                        <span class="activity-time">14.33 AM</span>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-text">Ayam Rendang Rusdi</span>
+                        <span class="activity-time">14.33 AM</span>
+                    </div>
+                    <div class="activity-item success">
+                        <span class="activity-text">Ayam Rendang Rusdi</span>
+                        <span class="activity-time">14.33 AM</span>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-text">Ayam Rendang Rusdi</span>
+                        <span class="activity-time">14.33 AM</span>
+                    </div>
+                    <div class="activity-item danger">
+                        <span class="activity-text">Ayam Rendang Rusdi</span>
+                        <span class="activity-time">14.33 AM</span>
+                    </div>
+                    <div class="activity-item success">
+                        <span class="activity-text">Ayam Rendang Rusdi</span>
+                        <span class="activity-time">14.33 AM</span>
+                    </div>
+                    <div class="activity-item success">
+                        <span class="activity-text">Ayam Rendang Rusdi</span>
+                        <span class="activity-time">14.33 AM</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KARYAWAN SECTION -->
+        <section id="karyawan" class="page-section">
+            <div class="header">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Cari data karyawan">
+                </div>
+            </div>
+            <div class="table-header">
+                <h1 class="page-title" style="margin: 0;">Karyawan</h1>
+                <button class="btn-add"><i class="fas fa-plus"></i></button>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01</td>
+                            <td><span class="user-icon"><i class="fas fa-user"></i></span>Nama Karyawan Makanan Bergizi</td>
+                            <td>
+                                <div class="action-btns">
+                                    <button class="btn-action btn-view" onclick="openViewModal('karyawan')">View</button>
+                                    <button class="btn-action btn-edit" onclick="openEditModal('karyawan')">Edit</button>
+                                    <button class="btn-action btn-delete" onclick="openDeleteModal()">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>02</td>
+                            <td><span class="user-icon"><i class="fas fa-user"></i></span>Nama Karyawan Makanan Bergizi</td>
+                            <td>
+                                <div class="action-btns">
+                                    <button class="btn-action btn-view" onclick="openViewModal('karyawan')">View</button>
+                                    <button class="btn-action btn-edit" onclick="openEditModal('karyawan')">Edit</button>
+                                    <button class="btn-action btn-delete" onclick="openDeleteModal()">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>03</td>
+                            <td><span class="user-icon"><i class="fas fa-user"></i></span>Nama Karyawan Makanan Bergizi</td>
+                            <td>
+                                <div class="action-btns">
+                                    <button class="btn-action btn-view" onclick="openViewModal('karyawan')">View</button>
+                                    <button class="btn-action btn-edit" onclick="openEditModal('karyawan')">Edit</button>
+                                    <button class="btn-action btn-delete" onclick="openDeleteModal()">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>04</td>
+                            <td><span class="user-icon"><i class="fas fa-user"></i></span>Nama Karyawan Makanan Bergizi</td>
+                            <td>
+                                <div class="action-btns">
+                                    <button class="btn-action btn-view" onclick="openViewModal('karyawan')">View</button>
+                                    <button class="btn-action btn-edit" onclick="openEditModal('karyawan')">Edit</button>
+                                    <button class="btn-action btn-delete" onclick="openDeleteModal()">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>05</td>
+                            <td><span class="user-icon"><i class="fas fa-user"></i></span>Nama Karyawan Makanan Bergizi</td>
+                            <td>
+                                <div class="action-btns">
+                                    <button class="btn-action btn-view" onclick="openViewModal('karyawan')">View</button>
+                                    <button class="btn-action btn-edit" onclick="openEditModal('karyawan')">Edit</button>
+                                    <button class="btn-action btn-delete" onclick="openDeleteModal()">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    <button class="page-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CALON PENERIMA SECTION -->
+        <section id="calon-penerima" class="page-section">
+            <div class="header">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Cari data karyawan">
+                </div>
+            </div>
+            <div class="table-header">
+                <h1 class="page-title" style="margin: 0;">Calon Penerima</h1>
+                <button class="btn-add"><i class="fas fa-plus"></i></button>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>NIK</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01</td>
+                            <td>Renal Kusnadi</td>
+                            <td>0041221334244</td>
+                            <td><span class="badge badge-warning">On Review</span></td>
+                            <td>
+                                <div class="action-btns">
+                                    <button class="btn-action btn-view" onclick="openViewModal('calon-penerima')">View</button>
+                                    <button class="btn-action btn-edit" onclick="openEditModal('calon-penerima')">Edit</button>
+                                    <button class="btn-action btn-delete" onclick="openDeleteModal()">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>02</td>
+                            <td>Iqbal Rudi</td>
+                            <td>0037657453543</td>
+                            <td><span class="badge badge-danger">Not Verified</span></td>
+                            <td>
+                                <div class="action-btns">
+                                    <button class="btn-action btn-view" onclick="openViewModal('calon-penerima')">View</button>
+                                    <button class="btn-action btn-edit" onclick="openEditModal('calon-penerima')">Edit</button>
+                                    <button class="btn-action btn-delete" onclick="openDeleteModal()">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>03</td>
+                            <td>Renal Kusnadi</td>
+                            <td>0041221334244</td>
+                            <td><span class="badge badge-warning">On Review</span></td>
+                            <td>
+                                <div class="action-btns">
+                                    <button class="btn-action btn-view" onclick="openViewModal('calon-penerima')">View</button>
+                                    <button class="btn-action btn-edit" onclick="openEditModal('calon-penerima')">Edit</button>
+                                    <button class="btn-action btn-delete" onclick="openDeleteModal()">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>04</td>
+                            <td>Iqbal Rudi</td>
+                            <td>0037657453543</td>
+                            <td><span class="badge badge-danger">Not Verified</span></td>
+                            <td>
+                                <div class="action-btns">
+                                    <button class="btn-action btn-view" onclick="openViewModal('calon-penerima')">View</button>
+                                    <button class="btn-action btn-edit" onclick="openEditModal('calon-penerima')">Edit</button>
+                                    <button class="btn-action btn-delete" onclick="openDeleteModal()">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>05</td>
+                            <td>Renal Kusnadi</td>
+                            <td>0041221334244</td>
+                            <td><span class="badge badge-warning">On Review</span></td>
+                            <td>
+                                <div class="action-btns">
+                                    <button class="btn-action btn-view" onclick="openViewModal('calon-penerima')">View</button>
+                                    <button class="btn-action btn-edit" onclick="openEditModal('calon-penerima')">Edit</button>
+                                    <button class="btn-action btn-delete" onclick="openDeleteModal()">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    <button class="page-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PENERIMA SECTION -->
+        <section id="penerima" class="page-section">
+            <div class="header">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Cari data karyawan">
+                </div>
+            </div>
+            <div class="table-header">
+                <h1 class="page-title" style="margin: 0;">Penerima</h1>
+                <button class="btn-add"><i class="fas fa-plus"></i></button>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>NIK</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01</td>
+                            <td>Renal Kusnadi</td>
+                            <td>0041221334244</td>
+                            <td><span class="badge badge-success">Verified</span></td>
+                            <td>
+                                <div class="action-btns">
+                                    <button class="btn-action btn-view" onclick="openViewModal('penerima')">View</button>
+                                    <button class="btn-action btn-edit" onclick="openEditModal('penerima')">Edit</button>
+                                    <button class="btn-action btn-delete" onclick="openDeleteModal()">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>02</td>
+                            <td>Iqbal Rudi</td>
+                            <td>0037657453543</td>
+                            <td><span class="badge badge-success">Verified</span></td>
+                            <td>
+                                <div class="action-btns">
+                                    <button class="btn-action btn-view" onclick="openViewModal('penerima')">View</button>
+                                    <button class="btn-action btn-edit" onclick="openEditModal('penerima')">Edit</button>
+                                    <button class="btn-action btn-delete" onclick="openDeleteModal()">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>03</td>
+                            <td>Renal Kusnadi</td>
+                            <td>0041221334244</td>
+                            <td><span class="badge badge-success">Verified</span></td>
+                            <td>
+                                <div class="action-btns">
+                                    <button class="btn-action btn-view" onclick="openViewModal('penerima')">View</button>
+                                    <button class="btn-action btn-edit" onclick="openEditModal('penerima')">Edit</button>
+                                    <button class="btn-action btn-delete" onclick="openDeleteModal()">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>04</td>
+                            <td>Iqbal Rudi</td>
+                            <td>0037657453543</td>
+                            <td><span class="badge badge-success">Verified</span></td>
+                            <td>
+                                <div class="action-btns">
+                                    <button class="btn-action btn-view" onclick="openViewModal('penerima')">View</button>
+                                    <button class="btn-action btn-edit" onclick="openEditModal('penerima')">Edit</button>
+                                    <button class="btn-action btn-delete" onclick="openDeleteModal()">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>05</td>
+                            <td>Renal Kusnadi</td>
+                            <td>0041221334244</td>
+                            <td><span class="badge badge-success">Verified</span></td>
+                            <td>
+                                <div class="action-btns">
+                                    <button class="btn-action btn-view" onclick="openViewModal('penerima')">View</button>
+                                    <button class="btn-action btn-edit" onclick="openEditModal('penerima')">Edit</button>
+                                    <button class="btn-action btn-delete" onclick="openDeleteModal()">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    <button class="page-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- KOTAK MBG SECTION - MODERN SUPERADMIN STYLE -->
+        <section id="kotak-mbg" class="page-section">
+            <div class="page-header">
+                <h1 class="page-title">Kotak MBG</h1>
+                <button class="btn-add" onclick="openUploadModal()">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+
+            <!-- Tabel Kotak MBG Modern -->
+            <div class="table-container modern-table">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Menu</th>
+                            <th>Code</th>
+                            <th>BlockchainHash</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01</td>
+                            <td>
+                                <span>Ayam Rendang</span>
+                            </td>
+                            <td><span class="code-badge">69696996</span></td>
+                            <td><span class="hash-text">67g2eg87f32fbewbwos</span></td>
+                            <td class="actions">
+                                <button class="btn-action btn-view" onclick="openViewKotak()">View</button>
+                                <button class="btn-action btn-delete" onclick="openDeleteModal()">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>02</td>
+                            <td>
+                                <span>Ikan Bakar</span>
+                            </td>
+                            <td><span class="code-badge">69696997</span></td>
+                            <td><span class="hash-text">67g2eg87f32fbewbwot</span></td>
+                            <td class="actions">
+                                <button class="btn-action btn-view" onclick="openViewKotak()">View</button>
+                                <button class="btn-action btn-delete" onclick="openDeleteModal()">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>03</td>
+                            <td>
+                                <span>Sayur Lodeh</span>
+                            </td>
+                            <td><span class="code-badge">69696998</span></td>
+                            <td><span class="hash-text">67g2eg87f32fbewbou</span></td>
+                            <td class="actions">
+                                <button class="btn-action btn-view" onclick="openViewKotak()">View</button>
+                                <button class="btn-action btn-delete" onclick="openDeleteModal()">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>04</td>
+                            <td>
+                                <span>Tempe Goreng</span>
+                            </td>
+                            <td><span class="code-badge">69696999</span></td>
+                            <td><span class="hash-text">67g2eg87f32fbewbov</span></td>
+                            <td class="actions">
+                                <button class="btn-action btn-view" onclick="openViewKotak()">View</button>
+                                <button class="btn-action btn-delete" onclick="openDeleteModal()">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>05</td>
+                            <td>
+                                <span>Tahu Isi</span>
+                            </td>
+                            <td><span class="code-badge">69697000</span></td>
+                            <td><span class="hash-text">67g2eg87f32fbebow</span></td>
+                            <td class="actions">
+                                <button class="btn-action btn-view" onclick="openViewKotak()">View</button>
+                                <button class="btn-action btn-delete" onclick="openDeleteModal()">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    <button class="page-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <h2 class="section-title">Bukti Kotak Diterima</h2>
+            <div class="table-container modern-table">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Penerima</th>
+                            <th>Code</th>
+                            <th>BlockchainHash</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01</td>
+                            <td>
+                                <div class="user-cell">
+                                    
+                                    <span>Renal Kusnadi</span>
+                                </div>
+                            </td>
+                            <td><span class="code-badge">69696996</span></td>
+                            <td><span class="hash-text">67g2eg87f32fbewbwos</span></td>
+                            <td class="actions">
+                                <button class="btn-action btn-view" onclick="openViewBukti()">View</button>
+                                <button class="btn-action btn-delete" onclick="openDeleteModal()">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>02</td>
+                            <td>
+                                <div class="user-cell">
+                                   
+                                    <span>Budi Santoso</span>
+                                </div>
+                            </td>
+                            <td><span class="code-badge">69696997</span></td>
+                            <td><span class="hash-text">67g2eg87f32fbewbwot</span></td>
+                            <td class="actions">
+                                <button class="btn-action btn-view" onclick="openViewBukti()">View</button>
+                                <button class="btn-action btn-delete" onclick="openDeleteModal()">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>03</td>
+                            <td>
+                                <div class="user-cell">
+                                    
+                                    <span>Ani Wulandari</span>
+                                </div>
+                            </td>
+                            <td><span class="code-badge">69696998</span></td>
+                            <td><span class="hash-text">67g2eg87f32fbewbou</span></td>
+                            <td class="actions">
+                                <button class="btn-action btn-view" onclick="openViewBukti()">View</button>
+                                <button class="btn-action btn-delete" onclick="openDeleteModal()">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>04</td>
+                            <td>
+                                <div class="user-cell">
+                                    
+                                    <span>Dedi Kurniawan</span>
+                                </div>
+                            </td>
+                            <td><span class="code-badge">69696999</span></td>
+                            <td><span class="hash-text">67g2eg87f32fbewbov</span></td>
+                            <td class="actions">
+                                <button class="btn-action btn-view" onclick="openViewBukti()">View</button>
+                                <button class="btn-action btn-delete" onclick="openDeleteModal()">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>05</td>
+                            <td>
+                                <div class="user-cell">
+                                    
+                                    <span>Siti Aminah</span>
+                                </div>
+                            </td>
+                            <td><span class="code-badge">69697000</span></td>
+                            <td><span class="hash-text">67g2eg87f32fbebow</span></td>
+                            <td class="actions">
+                                <button class="btn-action btn-view" onclick="openViewBukti()">View</button>
+                                <button class="btn-action btn-delete" onclick="openDeleteModal()">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    <button class="page-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEMPAT SECTION -->
+        <section id="tempat" class="page-section">
+            <div class="header">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Cari data Tempat Penerima">
+                </div>
+            </div>
+            <div class="table-header">
+                <h1 class="page-title" style="margin: 0;">Tempat Penerima</h1>
+                <button class="btn-add"><i class="fas fa-plus"></i></button>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>Alamat</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01</td>
+                            <td>SDN 012 Samarinda</td>
+                            <td>JL.Contoh Aja</td>
+                            <td>
+                                <div class="action-btns">
+                                    <button class="btn-action btn-view" onclick="openViewModal('tempat')">View</button>
+                                    <button class="btn-action btn-edit" onclick="openEditModal('tempat')">Edit</button>
+                                    <button class="btn-action btn-delete" onclick="openDeleteModal()">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>02</td>
+                            <td>SDN 012 Samarinda</td>
+                            <td>JL.Contoh Aja</td>
+                            <td>
+                                <div class="action-btns">
+                                    <button class="btn-action btn-view" onclick="openViewModal('tempat')">View</button>
+                                    <button class="btn-action btn-edit" onclick="openEditModal('tempat')">Edit</button>
+                                    <button class="btn-action btn-delete" onclick="openDeleteModal()">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>03</td>
+                            <td>SDN 012 Samarinda</td>
+                            <td>JL.Contoh Aja</td>
+                            <td>
+                                <div class="action-btns">
+                                    <button class="btn-action btn-view" onclick="openViewModal('tempat')">View</button>
+                                    <button class="btn-action btn-edit" onclick="openEditModal('tempat')">Edit</button>
+                                    <button class="btn-action btn-delete" onclick="openDeleteModal()">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>04</td>
+                            <td>SDN 012 Samarinda</td>
+                            <td>JL.Contoh Aja</td>
+                            <td>
+                                <div class="action-btns">
+                                    <button class="btn-action btn-view" onclick="openViewModal('tempat')">View</button>
+                                    <button class="btn-action btn-edit" onclick="openEditModal('tempat')">Edit</button>
+                                    <button class="btn-action btn-delete" onclick="openDeleteModal()">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>05</td>
+                            <td>SDN 012 Samarinda</td>
+                            <td>JL.Contoh Aja</td>
+                            <td>
+                                <div class="action-btns">
+                                    <button class="btn-action btn-view" onclick="openViewModal('tempat')">View</button>
+                                    <button class="btn-action btn-edit" onclick="openEditModal('tempat')">Edit</button>
+                                    <button class="btn-action btn-delete" onclick="openDeleteModal()">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    <button class="page-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- AKTIVITAS SECTION -->
+        <section id="aktivitas" class="page-section">
+            <div class="header">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Cari data aktivitas...">
+                </div>
+            </div>
+            <h1 class="page-title">Aktivitas</h1>
+
+            <div class="table-header" style="margin-top: 20px;">
+                <h2 class="section-title" style="margin: 0;">Aktivitas Sistem</h2>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Vendor</th>
+                            <th>Kode Hash</th>
+                            <th>Judul</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01</td>
+                            <td>Biro Sultengpos</td>
+                            <td>8d9d9d9d9d9d9d9d9d9d9d9d</td>
+                            <td>Penghapusan Data</td>
+                            <td>
+                                <div class="action-btns">
+                                    <button class="btn-action btn-view" onclick="openViewAktivitas()">View</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>02</td>
+                            <td>Admin Pusat</td>
+                            <td>7a8b9c0d1e2f3g4h5i6j7k8l</td>
+                            <td>Update Data Sekolah</td>
+                            <td>
+                                <div class="action-btns">
+                                    <button class="btn-action btn-view" onclick="openViewAktivitas()">View</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-header" style="margin-top: 30px;">
+                <h2 class="section-title" style="margin: 0;">Aktivitas Kotak MBG</h2>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Menu</th>
+                            <th>Code</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01</td>
+                            <td>Ayam Rendang</td>
+                            <td>89896999</td>
+                            <td><span class="badge badge-success">Diterima</span></td>
+                            <td>
+                                <div class="action-btns">
+                                    <button class="btn-action btn-view" onclick="openViewAktivitasKotak()">View</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>02</td>
+                            <td>Ikan Bakar</td>
+                            <td>76767677</td>
+                            <td><span class="badge badge-warning">Pending</span></td>
+                            <td>
+                                <div class="action-btns">
+                                    <button class="btn-action btn-view" onclick="openViewAktivitasKotak()">View</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- PROFIL SECTION -->
+        <section id="profil" class="page-section">
+            <div class="header">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Cari data Bukti Kotak Diterima">
+                </div>
+            </div>
+            <h1 class="page-title">Profil</h1>
+            <div class="profile-container">
+                <div class="profile-avatar blue">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="profile-form">
+                    <div class="form-group">
+                        <label>Nama</label>
+                        <input type="text" value="Muhammad Iqbal">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" value="iqbal@gmail.com">
+                    </div>
+                    <div class="form-group">
+                        <label>NIK</label>
+                        <input type="text" value="0099826628">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <div class="password-wrapper">
+                            <input type="password" value="password123" id="profilePassword">
+                            <i class="fas fa-eye" onclick="togglePassword('profilePassword')"></i>
+                        </div>
+                    </div>
+                    <div class="form-group full">
+                        <label>Alamat</label>
+                        <input type="text" value="Jalan bla bla bla">
+                    </div>
+                </div>
+                <button class="btn-save">
+                    <span>Simpan</span>
+                    <i class="fas fa-save"></i>
+                </button>
+                <div style="clear: both;"></div>
+            </div>
+        </section>
+
+        <!-- LANDING PAGE SECTION -->
+        <section id="landing" class="page-section">
+            <div class="header">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+            </div>
+            <h1 class="page-title">Landing Page</h1>
+            <div style="text-align: center; padding: 50px; color: #666;">
+                <i class="fas fa-globe" style="font-size: 64px; color: #ddd; margin-bottom: 20px;"></i>
+                <p>Landing Page Content</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL VIEW STANDARD -->
+    <div class="modal-overlay" id="viewModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal('viewModal')"><i class="fas fa-times"></i></button>
+            <div class="modal-title">View</div>
+            <div class="modal-icon blue" id="viewIcon">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="modal-subtitle" id="viewSubtitle">Nama Karyawan</div>
+            <div class="modal-form" id="viewForm"></div>
+        </div>
+    </div>
+
+    <!-- MODAL EDIT -->
+    <div class="modal-overlay" id="editModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal('editModal')"><i class="fas fa-times"></i></button>
+            <div class="modal-title" style="color: #FF9800;">Edit</div>
+            <div class="modal-icon orange" id="editIcon">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="modal-subtitle" id="editSubtitle">Nama Karyawan</div>
+            <div class="modal-form" id="editForm"></div>
+            <button class="btn-save orange" style="width: 100%; margin-top: 20px; justify-content: center;">
+                <span>Simpan</span>
+                <i class="fas fa-save"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- MODAL DELETE -->
+    <div class="modal-overlay delete-modal" id="deleteModal">
+        <div class="modal" style="text-align: center;">
+            <button class="modal-close" onclick="closeModal('deleteModal')"><i class="fas fa-times"></i></button>
+            <div class="modal-title" style="justify-content: flex-start;">Delete</div>
+            <div class="modal-icon green">
+                <i class="fas fa-stopwatch"></i>
+            </div>
+            <div class="delete-text">Menunggu Persetujuan Super Admin...</div>
+            <button class="btn-modal btn-cancel" onclick="closeModal('deleteModal')">Batalkan</button>
+        </div>
+    </div>
+
+    <!-- MODAL VIEW AKTIVITAS -->
+    <div class="modal-overlay" id="viewAktivitasModal">
+        <div class="modal" style="max-width: 600px; width: 95%;">
+            <button class="modal-close" onclick="closeModal('viewAktivitasModal')"><i class="fas fa-times"></i></button>
+            <div class="modal-title" style="color: #2196F3; margin-bottom: 20px;">
+                <span style="margin-right:8px;">●</span> View Aktivitas Sistem
+            </div>
+            
+            <div style="max-height: 70vh; overflow-y: auto; text-align: left; padding-right: 5px;">
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <div style="width: 60px; height: 60px; background-color: #2196F3; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                        <i class="fas fa-chart-line" style="font-size: 30px; color: white;"></i>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 10px;"><label style="font-size: 13px; color: #666; display: block; margin-bottom:5px;">● Vendor</label><div style="background: #E3F2FD; padding: 10px; border-radius: 8px; color: #333; font-size: 13px;">Biro Sultengpos</div></div>
+                <div style="margin-bottom: 10px;"><label style="font-size: 13px; color: #666; display: block; margin-bottom:5px;">● Kode Hash</label><div style="background: #E3F2FD; padding: 10px; border-radius: 8px; color: #2196F3; font-size: 13px; word-break: break-all;">8d9d9d9d9d9d9d9d9d9d9d9d</div></div>
+                <div style="margin-bottom: 10px;"><label style="font-size: 13px; color: #666; display: block; margin-bottom:5px;">● Judul</label><div style="background: #E3F2FD; padding: 10px; border-radius: 8px; color: #333; font-size: 13px;">Penghapusan Data</div></div>
+                
+                <div style="margin-bottom: 15px;">
+                    <label style="font-size: 13px; color: #666; display:block; margin-bottom:5px;">● Detail Baru</label>
+                    <div onclick="toggleDropdown('dropBaruAdmin', 'arrowBaruAdmin')" style="background: #E3F2FD; padding: 12px 15px; border-radius: 8px; display: flex; justify-content: space-between; cursor: pointer; color: #2196F3; font-weight: bold;">
+                        <span>Klik untuk Detail Baru</span>
+                        <span id="arrowBaruAdmin">▼</span>
+                    </div>
+                    
+                    <div id="dropBaruAdmin" style="display: none; background: #fff; border: 1px solid #E3F2FD; padding: 15px; border-radius: 8px; margin-top: 10px; font-size: 13px;">
+                        <div style="margin-bottom: 10px;"><strong>Nama Menu:</strong> <span style="color:#2196F3; float:right;">Nasi Padang Spesial</span></div>
+                        <div style="margin-bottom: 10px;"><strong>Harga:</strong> <span style="color:#2196F3; float:right;">Rp 30.000</span></div>
+                        <div style="margin-bottom: 10px;"><strong>Diupdate Oleh:</strong> <span style="color:#2196F3; float:right;">Biro Sultengpos</span></div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 10px;"><label style="font-size: 13px; color: #666; display: block; margin-bottom:5px;">● IP Address</label><div style="background: #E3F2FD; padding: 10px; border-radius: 8px; color: #333; font-size: 13px;">192.168.1.99</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL VIEW AKTIVITAS KOTAK MBG -->
+    <div class="modal-overlay" id="viewAktivitasKotakModal">
+        <div class="modal" style="max-width: 600px; width: 95%;">
+            <button class="modal-close" onclick="closeModal('viewAktivitasKotakModal')"><i class="fas fa-times"></i></button>
+            <div class="modal-title" style="color: #2196F3; margin-bottom: 20px;">
+                <span style="margin-right:8px;">●</span> View Aktivitas Kotak MBG
+            </div>
+            
+            <div style="max-height: 70vh; overflow-y: auto; text-align: left; padding-right: 5px;">
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <div style="width: 60px; height: 60px; background-color: #2196F3; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                        <i class="fas fa-box" style="font-size: 30px; color: white;"></i>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                    <div><label style="font-size: 13px; color: #666; display: block; margin-bottom:5px;">● Nama</label><div style="background: #E3F2FD; padding: 10px; border-radius: 8px; color: #2196F3; font-weight: bold; font-size: 13px;">Ayam Rendang</div></div>
+                    <div><label style="font-size: 13px; color: #666; display: block; margin-bottom:5px;">● Code</label><div style="background: #E3F2FD; padding: 10px; border-radius: 8px; color: #2196F3; font-weight: bold; font-size: 13px;">#00001</div></div>
+                    <div><label style="font-size: 13px; color: #666; display: block; margin-bottom:5px;">● Hash</label><div style="background: #E3F2FD; padding: 10px; border-radius: 8px; color: #2196F3; font-size: 11px; word-break: break-all;">57g2eg87f3...</div></div>
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <label style="font-size: 13px; color: #666; margin-bottom:5px; display:block;">● Gambar</label>
+                    <img src="https://i.ibb.co/Ldqm9Xb/food-tray.jpg" style="width: 100%; border-radius: 8px; display: block;">
+                </div>
+
+                <div style="margin-bottom: 10px;"><label style="font-size: 13px; color: #666; display: block; margin-bottom:5px;">● Feedback Penerima</label><div style="background: #E3F2FD; padding: 10px; border-radius: 8px; color: #333; font-size: 13px; line-height:1.5;">Menu Makanan ini sangat bergizi dan dapat memenuhi gizi, aku nak sepuluh woii</div></div>
+                <div style="margin-bottom: 10px;"><label style="font-size: 13px; color: #666; display: block; margin-bottom:5px;">● Waktu</label><div style="background: #E3F2FD; padding: 10px; border-radius: 8px; color: #333; font-size: 13px;">2024-03-29 14:33:00</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         MODERN KOTAK MBG MODALS - SUPERADMIN STYLE
+         ============================================ -->
+
+    <!-- UPLOAD & ANALYSIS MODAL -->
+    <div class="modal-overlay" id="uploadAnalysisModal">
+        <div class="modal modal-upload">
+            <!-- Step 1: Upload -->
+            <div class="upload-step" id="uploadStep">
+                <div class="upload-icons-header">
+                    <div class="icon-box"><i class="fas fa-image"></i></div>
+                    <div class="icon-box"><i class="fas fa-mountain"></i></div>
+                    <div class="icon-box"><i class="fas fa-images"></i></div>
+                </div>
+                <h2 class="upload-title">
+                    Masukkan Gambar <span class="highlight">Kotak MBG Berisi Makanan</span> Yang Ingin Di <span class="highlight">Analisis</span>
+                </h2>
+                <p class="upload-subtitle">Pilih Gambar Makanan Yang Jelas dan Tidak Terpotong</p>
+
+                <div class="form-group">
+                    <label><span class="dot"></span> Nama Menu</label>
+                    <input type="text" id="menuNameInput" class="form-input" placeholder="Masukkan nama menu">
+                </div>
+
+                <div class="upload-area" id="uploadArea">
+                    <input type="file" id="modalFileInput" accept="image/*" hidden onchange="handleFileSelect(event)">
+                    <button class="btn-upload-trigger" onclick="document.getElementById('modalFileInput').click()">
+                        <i class="fas fa-plus"></i>
+                        <span>Upload Gambar</span>
+                    </button>
+                    <p class="upload-hint">Klik atau drag gambar untuk upload disini</p>
+                </div>
+
+                <button class="btn-submit" onclick="startAnalysis()">
+                    <span>Kirim</span>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+
+            <!-- Step 2: Analyzing -->
+            <div class="analyzing-step" id="analyzingStep" style="display: none;">
+                <div class="upload-icons-header">
+                    <div class="icon-box"><i class="fas fa-image"></i></div>
+                    <div class="icon-box"><i class="fas fa-mountain"></i></div>
+                    <div class="icon-box"><i class="fas fa-images"></i></div>
+                </div>
+                <h2 class="analyzing-title">Menganalisis Gambar ....</h2>
+                <div class="analyzing-image-container">
+                    <img id="analyzingImage" src="" alt="Analyzing">
+                </div>
+            </div>
+
+            <!-- Step 3: Nutrition Result -->
+            <div class="nutrition-result-step" id="nutritionResultStep" style="display: none;">
+                <div class="result-header">
+                    <h2>Informasi Gizi</h2>
+                    <button class="btn-back" onclick="closeUploadModal()">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                </div>
+                
+                <div class="result-content">
+                    <div class="result-number">001</div>
+                    <div class="result-image">
+                        <img id="resultImage" src="" alt="Food Result">
+                    </div>
+                    <div class="result-details">
+                        <h3>Detail</h3>
+                        <div class="nutrition-grid">
+                            <div class="nutrition-item">
+                                <label>Nama Menu</label>
+                                <span id="resultMenuName">Ayam Rendang</span>
+                            </div>
+                            <div class="nutrition-item">
+                                <label>Code</label>
+                                <span>#00001</span>
+                            </div>
+                            <div class="nutrition-item">
+                                <label>Kalori</label>
+                                <span>500 kcal</span>
+                            </div>
+                            <div class="nutrition-item">
+                                <label>Protein</label>
+                                <span>50 Gram</span>
+                            </div>
+                            <div class="nutrition-item">
+                                <label>Lemak</label>
+                                <span>50 Gram</span>
+                            </div>
+                            <div class="nutrition-item">
+                                <label>Karbohidrat</label>
+                                <span>50 Gram</span>
+                            </div>
+                            <div class="nutrition-item">
+                                <label>Serat</label>
+                                <span>50 Gram</span>
+                            </div>
+                            <div class="nutrition-item">
+                                <label>Kalsium</label>
+                                <span>50 Gram</span>
+                            </div>
+                            <div class="nutrition-item">
+                                <label>Zat Besi</label>
+                                <span>50 Gram</span>
+                            </div>
+                            <div class="nutrition-item">
+                                <label>Natrium</label>
+                                <span>50 Gram</span>
+                            </div>
+                            <div class="nutrition-item">
+                                <label>Kalium</label>
+                                <span>50 Gram</span>
+                            </div>
+                            <div class="nutrition-item">
+                                <label>Zinc</label>
+                                <span>50 Gram</span>
+                            </div>
+                        </div>
+
+                        <div class="detail-box">
+                            <label>Detail Vitamin</label>
+                            <div class="detail-content">
+                                <p>Vitamin A : 2.00 mcg</p>
+                                <p>Vitamin B Kompleks (B1, B2, B3, B6, B9) : 0 Gram</p>
+                                <p>Vitamin C : 0 Gram</p>
+                                <p>Vitamin D : 0 Gram</p>
+                                <p>Vitamin E : 0 Gram</p>
+                                <p>Vitamin K : 0 Gram</p>
+                            </div>
+                        </div>
+
+                        <div class="detail-box">
+                            <label>Detail Lemak</label>
+                            <div class="detail-content">
+                                <p>Lemak Jenuh : 0 Gram</p>
+                                <p>Lemak Tidak Jenuh : 0 Gram</p>
+                                <p>Lemak Trans : 0 Gram</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-save-nutrition" onclick="saveNutritionInfo()">
+                    <i class="fas fa-save"></i>
+                    <span>Simpan Informasi</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL VIEW KOTAK MODERN -->
+    <div class="modal-overlay" id="viewKotakModal">
+        <div class="modal modal-large">
+            <button class="modal-close" onclick="closeModal('viewKotakModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header-custom">
+                <span class="dot"></span>
+                <h3>View</h3>
+            </div>
+            
+            <div class="modal-body-custom">
+                <div class="modal-icon-large">
+                    <i class="fas fa-box"></i>
+                </div>
+                <h3 class="modal-subtitle">Kotak MBG</h3>
+                
+                <div class="nutrition-grid-modal">
+                    <div class="nutrition-item-modal">
+                        <label><span class="dot"></span> Nama</label>
+                        <span class="value-orange">Ayam Rendang</span>
+                    </div>
+                    <div class="nutrition-item-modal">
+                        <label><span class="dot"></span> No</label>
+                        <span>001</span>
+                    </div>
+                    <div class="nutrition-item-modal">
+                        <label><span class="dot"></span> Code</label>
+                        <span>69696969</span>
+                    </div>
+                    <div class="nutrition-item-modal">
+                        <label><span class="dot"></span> Kalori</label>
+                        <span>500 kcal</span>
+                    </div>
+                    <div class="nutrition-item-modal">
+                        <label><span class="dot"></span> Protein</label>
+                        <span>50 Gram</span>
+                    </div>
+                    <div class="nutrition-item-modal">
+                        <label><span class="dot"></span> Lemak</label>
+                        <span>50 Gram</span>
+                    </div>
+                    <div class="nutrition-item-modal">
+                        <label><span class="dot"></span> Karbohidrat</label>
+                        <span>50 Gram</span>
+                    </div>
+                    <div class="nutrition-item-modal">
+                        <label><span class="dot"></span> Serat</label>
+                        <span>50 Gram</span>
+                    </div>
+                    <div class="nutrition-item-modal">
+                        <label><span class="dot"></span> Kalsium</label>
+                        <span>50 Gram</span>
+                    </div>
+                    <div class="nutrition-item-modal">
+                        <label><span class="dot"></span> Zat Besi</label>
+                        <span>50 Gram</span>
+                    </div>
+                    <div class="nutrition-item-modal">
+                        <label><span class="dot"></span> Natrium</label>
+                        <span>50 Gram</span>
+                    </div>
+                    <div class="nutrition-item-modal">
+                        <label><span class="dot"></span> Kalium</label>
+                        <span>50 Gram</span>
+                    </div>
+                    <div class="nutrition-item-modal">
+                        <label><span class="dot"></span> Zinc</label>
+                        <span>50 Gram</span>
+                    </div>
+                </div>
+
+                <div class="detail-sections-modal">
+                    <div class="detail-section">
+                        <label><span class="dot"></span> Detail Vitamin</label>
+                        <div class="detail-content">
+                            <p>Vitamin A : 2.00 mcg</p>
+                            <p>Vitamin B : Kompleks (B1, B2, B3, B6, B9) : 0 Gram</p>
+                            <p>Vitamin C : 0 Gram</p>
+                            <p>Vitamin D : 0 Gram</p>
+                            <p>Vitamin E : 0 Gram</p>
+                            <p>Vitamin K : 0 Gram</p>
+                        </div>
+                    </div>
+                    <div class="detail-section">
+                        <label><span class="dot"></span> Detail Lemak</label>
+                        <div class="detail-content">
+                            <p>Lemak Jenuh : 0 Gram</p>
+                            <p>Lemak Tidak Jenuh : 0 Gram</p>
+                            <p>Lemak Trans : 0 Gram</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-image-section">
+                    <label><span class="dot"></span> Gambar</label>
+                    <div class="modal-image-container">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500" alt="Food">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL VIEW BUKTI MODERN -->
+    <div class="modal-overlay" id="viewBuktiModal">
+    <div class="modal modal-large">
+        <button class="modal-close" onclick="closeModal('viewBuktiModal')">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="modal-header-custom">
+            <span class="dot blue"></span>
+            <h3>View</h3>
+        </div>
+        
+        <div class="modal-scrollable-content">
+            <div class="modal-body-custom">
+                <div class="modal-icon-large">
+                    <i class="fas fa-box"></i>
+                </div>
+                <h3 class="modal-subtitle">Bukti Kotak Diterima</h3>
+                
+                <div class="form-row-modal">
+                    <div class="form-group-modal">
+                        <label><span class="dot blue"></span> Nama</label>
+                        <input type="text" value="Ayam Rendang" readonly class="input-blue">
+                    </div>
+                    <div class="form-group-modal">
+                        <label><span class="dot blue"></span> Code</label>
+                        <input type="text" value="#00001" readonly class="input-blue">
+                    </div>
+                </div>
+
+                <div class="form-group-modal full">
+                    <label><span class="dot blue"></span> Gambar</label>
+                    <div class="modal-image-container">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500" alt="Food">
+                    </div>
+                </div>
+
+                <div class="form-group-modal full">
+                    <label><span class="dot blue"></span> Feedback</label>
+                    <textarea readonly class="textarea-blue">Menu Makanan ini sangat bergizi dan dapat memenuhi gizi, aku nak sepuluh woi</textarea>
+                </div>
+
+                <div class="radar-gizi-container" style="margin-bottom: 20px;">
+                    <canvas id="radarGizi"></canvas>
+                </div>
+
+                <div class="form-group-modal full">
+                    <label><span class="dot blue"></span> Detail Kotak MBG</label>
+                    <div class="dropdown-trigger-modal" onclick="toggleDropdown('dropBuktiDetail', 'arrowBukti')">
+                        <span>Klik untuk Detail</span>
+                        <i class="fas fa-chevron-down" id="arrowBukti"></i>
+                    </div>
+                    
+                    <div id="dropBuktiDetail" class="dropdown-content-modal" style="display: none;">
+                        <div class="detail-grid-nested">
+                            <div class="detail-item-nested">
+                                <label><span class="dot blue"></span> No</label>
+                                <span class="value-blue">001</span>
+                            </div>
+                            <div class="detail-item-nested">
+                                <label><span class="dot blue"></span> Code</label>
+                                <span class="value-blue">0306190903</span>
+                            </div>
+                            <div class="detail-item-nested">
+                                <label><span class="dot blue"></span> Nama</label>
+                                <span class="value-blue">Ayam Rendang</span>
+                            </div>
+                            <div class="detail-item-nested">
+                                <label><span class="dot blue"></span> Status</label>
+                                <span class="badge-status-blue">Diterima</span>
+                            </div>
+                            <div class="detail-item-nested">
+                                <label><span class="dot blue"></span> Kalori</label>
+                                <span class="value-blue">500 Kcal</span>
+                            </div>
+                            <div class="detail-item-nested">
+                                <label><span class="dot blue"></span> Protein</label>
+                                <span class="value-blue">30 Gram</span>
+                            </div>
+                            <div class="detail-item-nested">
+                                <label><span class="dot blue"></span> Lemak</label>
+                                <span class="value-blue">30 Gram</span>
+                            </div>
+                            <div class="detail-item-nested">
+                                <label><span class="dot blue"></span> Karbohidrat</label>
+                                <span class="value-blue">30 Gram</span>
+                            </div>
+                            <div class="detail-item-nested">
+                                <label><span class="dot blue"></span> Serat</label>
+                                <span class="value-blue">30 Gram</span>
+                            </div>
+                            <div class="detail-item-nested">
+                                <label><span class="dot blue"></span> Kalsium</label>
+                                <span class="value-blue">30 Gram</span>
+                            </div>
+                            <div class="detail-item-nested">
+                                <label><span class="dot blue"></span> Zinc</label>
+                                <span class="value-blue">30 Gram</span>
+                            </div>
+                        </div>
+
+                        <div class="detail-box-nested">
+                            <label><span class="dot blue"></span> Detail Lemak</label>
+                            <div class="detail-content">
+                                <p>Lemak Jenuh : 0 Gram</p>
+                                <p>Lemak Baik : 11 Gram</p>
+                                <p>Lemak Trans : 0 Gram</p>
+                            </div>
+                        </div>
+
+                        <div class="detail-box-nested">
+                            <label><span class="dot blue"></span> Detail Vitamin</label>
+                            <div class="detail-content">
+                                <p>Vitamin C : 0 Gram</p>
+                                <p>Vitamin B Kompleks : 0 Gram</p>
+                                <p>Vitamin A : 11 Gram</p>
+                                <p>Vitamin D : 11 Gram</p>
+                                <p>Vitamin E : 11 Gram</p>
+                                <p>Vitamin K : 11 Gram</p>
+                            </div>
+                        </div>
+
+                        <div class="detail-item-nested full">
+                            <label><span class="dot blue"></span> Kelayakan</label>
+                            <span class="value-blue">Menu makanan ini sangat layak untuk dibagikan</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scriptadmin.js"></script>
+</body>
+</html>

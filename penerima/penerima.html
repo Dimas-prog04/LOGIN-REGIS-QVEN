@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penerima Dashboard</title>
+    <link rel="stylesheet" href="stylepenerima.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="../assets/Logo-mono.png" alt="Logo" style="max-width: 200px; height: auto; display: block;">
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li class="nav-item active" onclick="navigateTo('dashboard')">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </li>
+                    <li class="nav-item" onclick="navigateTo('kotak')">
+                        <i class="fas fa-box"></i>
+                        <span>Kotak MBG</span>
+                    </li>
+                    <li class="nav-item" onclick="navigateTo('profil')">
+                        <i class="fas fa-user"></i>
+                        <span>Profil</span>
+                    </li>
+                    <li class="nav-item" onclick="window.location.href='../HalamanUtama.html'">
+                        <i class="fas fa-globe"></i>
+                        <span>Landing Page</span>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Cari data Deskripsi Kotak MBG" id="searchInput">
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <div class="content">
+                <!-- Dashboard Section -->
+                <section id="dashboard" class="page-section active">
+                    <h1 class="page-title">Dashboard</h1>
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <div class="dot"></div>
+                            <span>Total Kotak Diterima</span>
+                        </div>
+                        <div class="card-body">
+                            <i class="fas fa-box-open"></i>
+                            <span class="number">2.000</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Kotak MBG Section -->
+                <section id="kotak" class="page-section">
+                    <div class="section-header">
+                        <h1 class="page-title">Bukti Kotak Diterima</h1>
+                        <button class="btn-add" onclick="openModal('tambahModal')">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Code</th>
+                                    <th>Nama</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                                <tr>
+                                    <td>01</td>
+                                    <td>89896999</td>
+                                    <td>Rendang</td>
+                                    <td><span class="status-badge">Diterima</span></td>
+                                    <td>
+                                        <button class="btn-view" onclick="openViewModal()">View</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>02</td>
+                                    <td>89896999</td>
+                                    <td>Rendang</td>
+                                    <td><span class="status-badge">Diterima</span></td>
+                                    <td>
+                                        <button class="btn-view" onclick="openViewModal()">View</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>03</td>
+                                    <td>89896999</td>
+                                    <td>Rendang</td>
+                                    <td><span class="status-badge">Diterima</span></td>
+                                    <td>
+                                        <button class="btn-view" onclick="openViewModal()">View</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>04</td>
+                                    <td>89896999</td>
+                                    <td>Rendang</td>
+                                    <td><span class="status-badge">Diterima</span></td>
+                                    <td>
+                                        <button class="btn-view" onclick="openViewModal()">View</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>05</td>
+                                    <td>89896999</td>
+                                    <td>Rendang</td>
+                                    <td><span class="status-badge">Diterima</span></td>
+                                    <td>
+                                        <button class="btn-view" onclick="openViewModal()">View</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="pagination">
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </section>
+
+                <!-- Profil Section -->
+                <section id="profil" class="page-section">
+                    <div class="section-header">
+                        <h1 class="page-title">Profil</h1>
+                        <button class="btn-edit" onclick="toggleEdit()">
+                            <i class="fas fa-pencil-alt"></i>
+                        </button>
+                    </div>
+
+                    <div class="profile-container">
+                        <div class="avatar-section">
+                            <div class="avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+
+                        <form class="profile-form" id="profileForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label><span class="dot"></span> Nama</label>
+                                    <input type="text" value="Muhammad Iqbal" class="form-input" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label><span class="dot"></span> Email</label>
+                                    <input type="email" value="iqbal@gmail.com" class="form-input" readonly>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label><span class="dot"></span> NIK</label>
+                                    <input type="text" value="0099826628" class="form-input" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label><span class="dot"></span> Password Baru</label>
+                                    <div class="password-field">
+                                        <input type="password" value="password123" class="form-input" readonly>
+                                        <i class="fas fa-eye" onclick="togglePassword(this)"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row full-width">
+                                <div class="form-group">
+                                    <label><span class="dot"></span> Alamat</label>
+                                    <input type="text" value="Jalan bla bla bla" class="form-input" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn-simpan" onclick="saveProfile()">
+                                    Simpan <i class="fas fa-save"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Landing Page Section -->
+                <section id="landing" class="page-section">
+                    <div class="landing-preview">
+                        <h1>Landing Page</h1>
+                        <p>Preview Landing Page akan ditampilkan di sini.</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal View Detail dengan Accordion -->
+    <div id="viewModal" class="modal">
+        <div class="modal-content modal-scrollable">
+            <div class="modal-header">
+                <h3><span class="dot"></span> View</h3>
+                <button class="btn-close" onclick="closeModal('viewModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-icon">
+                    <i class="fas fa-box-open"></i>
+                </div>
+                <h4 class="modal-title">Bukti Kotak Diterima</h4>
+
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <label><span class="dot"></span> Nama</label>
+                        <div class="detail-value">Ayam Rendang</div>
+                    </div>
+                    <div class="detail-item">
+                        <label><span class="dot"></span> Code</label>
+                        <div class="detail-value">#00001</div>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <label><span class="dot"></span> Gambar</label>
+                    <div class="image-preview-container">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&h=400&fit=crop" alt="Makanan" class="preview-image">
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <label><span class="dot"></span> Feedback</label>
+                    <div class="feedback-box">
+                        Menu Makanan ini sangat bergizi dan dapat memenuhi gizi, aku nak sepuluh woi
+                    </div>
+                </div>
+
+                <div class="radar-gizi-container" style="margin: 20px 0;">
+                    <canvas id="radarGizi"></canvas>
+                </div>
+
+                <!-- Accordion Detail Kotak MBG -->
+                <div class="detail-section">
+                    <div class="accordion-header" onclick="toggleAccordion()">
+                        <label style="margin: 0; cursor: pointer;"><span class="dot"></span> Detail Kotak MBG</label>
+                        <i class="fas fa-chevron-down accordion-icon" id="accordionIcon"></i>
+                    </div>
+                    
+                    <div class="accordion-content" id="detailAccordion">
+                        <div class="nutrition-grid">
+                            <div class="nutrition-item">
+                                <span class="nutrition-label">Kalori</span>
+                                <span class="nutrition-value">550 kcal</span>
+                            </div>
+                            <div class="nutrition-item">
+                                <span class="nutrition-label">Protein</span>
+                                <span class="nutrition-value">50 Gram</span>
+                            </div>
+                            <div class="nutrition-item">
+                                <span class="nutrition-label">Lemak</span>
+                                <span class="nutrition-value">50 Gram</span>
+                            </div>
+                            <div class="nutrition-item">
+                                <span class="nutrition-label">Karbohidrat</span>
+                                <span class="nutrition-value">50 Gram</span>
+                            </div>
+                            <div class="nutrition-item">
+                                <span class="nutrition-label">Serat</span>
+                                <span class="nutrition-value">30 Gram</span>
+                            </div>
+                            <div class="nutrition-item">
+                                <span class="nutrition-label">Kalsium</span>
+                                <span class="nutrition-value">90 Gram</span>
+                            </div>
+                            <div class="nutrition-item">
+                                <span class="nutrition-label">Zat Besi</span>
+                                <span class="nutrition-value">50 Gram</span>
+                            </div>
+                            <div class="nutrition-item">
+                                <span class="nutrition-label">Natrium</span>
+                                <span class="nutrition-value">60 Gram</span>
+                            </div>
+                            <div class="nutrition-item">
+                                <span class="nutrition-label">Kalium</span>
+                                <span class="nutrition-value">50 Gram</span>
+                            </div>
+                            <div class="nutrition-item">
+                                <span class="nutrition-label">Zinc</span>
+                                <span class="nutrition-value">90 Gram</span>
+                            </div>
+                        </div>
+
+                        <div class="detail-subsection">
+                            <h5>Detail Lemak</h5>
+                            <div class="sub-detail-box">
+                                <p>Jenuh: 20 Gram</p>
+                                <p>Trans: 0 Gram</p>
+                            </div>
+                        </div>
+
+                        <div class="detail-subsection">
+                            <h5>Detail Vitamin</h5>
+                            <div class="vitamin-list">
+                                <span class="vitamin-tag">Vitamin A</span>
+                                <span class="vitamin-tag">Vitamin B</span>
+                                <span class="vitamin-tag">Vitamin C</span>
+                                <span class="vitamin-tag">Vitamin D</span>
+                                <span class="vitamin-tag">Vitamin E</span>
+                                <span class="vitamin-tag">Vitamin K</span>
+                            </div>
+                        </div>
+
+                        <div class="detail-subsection">
+                            <h5>Keterangan</h5>
+                            <div class="sub-detail-box">
+                                <p>Mengandung Omega 3 dan Omega 6 yang baik untuk perkembangan otak anak</p>
+                            </div>
+                        </div>
+
+                        <div class="detail-section" style="margin-top: 20px;">
+                            <label><span class="dot"></span> Gambar</label>
+                            <div class="image-preview-container">
+                                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&h=400&fit=crop" alt="Detail Makanan" class="preview-image">
+                            </div>
+                        </div>
+
+                        <div class="detail-section" style="margin-top: 15px;">
+                            <label><span class="dot"></span> Feedback</label>
+                            <div class="feedback-box">
+                                Menu Makanan ini sangat bergizi dan dapat memenuhi gizi, aku nak sepuluh woi
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Tambah Data -->
+    <div id="tambahModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><span class="dot"></span> Tambah</h3>
+                <button class="btn-close" onclick="closeModal('tambahModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="tambahForm">
+                    <div class="form-group">
+                        <label><span class="dot"></span> Nama Menu</label>
+                        <input type="text" class="form-input" placeholder="Masukkan Nama Menu...">
+                    </div>
+
+                    <div class="form-group">
+                        <label><span class="dot"></span> Code</label>
+                        <input type="text" class="form-input" placeholder="Masukkan Text Code...">
+                    </div>
+
+                    <div class="form-group">
+                        <label><span class="dot"></span> Gambar</label>
+                        <div class="upload-box" id="dropZone">
+                            <div class="upload-content">
+                                <p class="upload-title">Masukan Gambar Kotak MBG Kamu</p>
+                                <button type="button" class="btn-upload" onclick="document.getElementById('fileInput').click()">
+                                    <i class="fas fa-plus"></i> Upload Gambar
+                                </button>
+                                <p class="upload-hint">Klik atau drop gambar pada kotak bergaris ini</p>
+                                <input type="file" id="fileInput" hidden accept="image/*" onchange="handleFileSelect(event)">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><span class="dot"></span> Feedback</label>
+                        <input type="text" class="form-input" placeholder="Masukkan Feedback Anda...">
+                    </div>
+
+                    <div class="form-actions right">
+                        <button type="button" class="btn-simpan" onclick="saveData()">
+                            Simpan <i class="fas fa-save"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Delete Confirmation -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content modal-small">
+            <div class="modal-body center">
+                <div class="warning-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <p class="warning-text">Anda Yakin Ingin Hapus ?</p>
+                <div class="warning-actions">
+                    <button class="btn-cancel" onclick="closeModal('deleteModal')">Tidak</button>
+                    <button class="btn-confirm" onclick="confirmDelete()">Ya</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scriptpenerima.js"></script>
+</body>
+</html>
